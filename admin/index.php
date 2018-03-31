@@ -41,6 +41,7 @@
     <li><a <?php if (isset($_GET['loc']) && $_GET['loc'] == "user") echo "class=\"active\" "; ?> href="index.php?loc=user">Client</a></li>
     <li><a <?php if (isset($_GET['loc']) && $_GET['loc'] == "panier") echo "class=\"active\" "; ?> href="index.php?loc=panier">Commande</a></li>
     <li><a <?php if (isset($_GET['loc']) && $_GET['loc'] == "product") echo "class=\"active\" "; ?> href="index.php?loc=product">Produits</a></li>
+    <li><a <?php if (isset($_GET['loc']) && $_GET['loc'] == "categorie") echo "class=\"active\" "; ?> href="index.php?loc=categorie">Categorie</a></li>
     <li><a <?php if (isset($_GET['loc']) && $_GET['loc'] == "admin") echo "class=\"active\" "; ?> href="index.php?loc=admin">Admin</a></li>
     <li><a href="../user/logout.php">Logout</a></li>
 </ul>
@@ -65,6 +66,9 @@ if (!empty($_SESSION['loggued_on_user'])) {
                     break;
                 case "product":
                     include "product.php";
+                    break;
+                case "categorie":
+                    include "categorie.php";
                     break;
                 case "admin":
                     include "admin.php";
