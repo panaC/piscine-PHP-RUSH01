@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS users (
   prenon VARCHAR(256) NOT NULL,
   nom VARCHAR(256) NOT NULL,
   date_de_creation DATE NOT NULL,
+  groupe ENUM('client', 'admin') NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -42,3 +43,6 @@ CREATE TABLE IF NOT EXISTS panier (
   groupe ENUM('current', 'archive'),
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+INSERT INTO users (login, passwd, prenon, nom, date_de_creation, groupe)
+VALUES ('admin', 'admin', 'admin', 'admin', '01/01/00', 'admin')
