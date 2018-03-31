@@ -59,7 +59,6 @@ if (!empty($_SESSION['loggued_on_user'])) {
             switch ($_GET['loc']) {
                 case "user":
                     include "user.php";
-                    user();
                     break;
                 case "panier":
                     include "panier.php";
