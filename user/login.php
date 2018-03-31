@@ -13,9 +13,9 @@
     <input type="submit" name="submit" value="OK">
 </form>
 <br>
-<a href="create.html" name="create">Creer un compte</a>
+<a href="create.php" name="create">Creer un compte</a>
 <br>
-<a href="modif.html" name="modif">Modifier mot de passe</a>
+<a href="modif.php" name="modif">Modifier mot de passe</a>
 </body>
 </html>
 
@@ -27,6 +27,9 @@
  * Time: 16:47
  */
 
+include "../db/setting.php";
+include "../db/auth.php";
+
 if (!empty($_POST['login']) && !empty($_POST['passwd'])) {
 
     session_start();
@@ -37,7 +40,7 @@ if (!empty($_POST['login']) && !empty($_POST['passwd'])) {
 
     } else {
         $_SESSION['loggued_on_user'] = "";
-        echo "Erreur : Votre mot de passe ou votre login est incorrect<br>";
+        echo "<br>Erreur : Votre mot de passe ou votre login est incorrect<br>";
     }
 }
 ?>
