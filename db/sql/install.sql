@@ -45,4 +45,4 @@ CREATE TABLE IF NOT EXISTS panier (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 INSERT INTO users (login, passwd, prenon, nom, date_de_creation, groupe)
-VALUES ('admin', 'admin', 'admin', 'admin', STR_TO_DATE('01/01/00', '%d/%m/%y'), 'admin')
+VALUES ('admin', 'admin', 'admin', 'admin', STR_TO_DATE('01/01/00', '%d/%m/%y'), 'admin');
