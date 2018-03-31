@@ -50,7 +50,7 @@ if (!empty($_POST['login']) && !empty($_POST['passwd']) && !empty($_POST['prenom
         echo mysqli_error($sql)."<br>";
 
         if ($res) {
-            header("location: index.php");
+            header("location: login.php");
             echo "OK\n";
         }
     } else {
