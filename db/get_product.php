@@ -18,4 +18,6 @@ function get_product($id) {
     return (mysqli_fetch_row($res));
 }
 
+
+
 ?>

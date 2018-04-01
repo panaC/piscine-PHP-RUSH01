@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Categorie</title>
-		<link rel="stylesheet" type="text/css" href="theme.css">
+		<link rel="stylesheet" type="text/css" href="css/theme.css">
 		<h1 style="font-size:300%">SHOP</h1>
 	</head>
 	<body>
