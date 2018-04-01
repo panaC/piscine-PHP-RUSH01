@@ -6,6 +6,7 @@
     }
 </style>
 <h1>Panier de l'e-shop</h1>
+<a style="Position:absolute; right:10px; top:15px;" href="../index.php">Retour a la boutique</a>
 <h2>Panier en cours :</h2>
 
 <table style="width:100%">
@@ -29,6 +30,11 @@ include "../db/setting.php";
 include "../db/get_product.php";
 include "../db/ft_print_product_table.php";
 
+if (!empty($_GET['del'])) {
+    $_SESSION['panier'] = "";
+    $_SESSION['panier-total'][] = "";
+}
+
 if (!empty($_GET['id_product']) && !empty($_GET['qty'])) {
     if (empty($_SESSION['panier']))
         $_SESSION['panier'] = array();
@@ -48,12 +54,13 @@ if (!empty($_SESSION['panier'])) {
 
     echo "</table>";
     echo "<h4>Total : " . $_SESSION['panier-total'] . " €</h4>";
-    echo "<a href=\"../db/val_panier.php\">Valider le panier</a>";
+    echo "<a href=\"../db/val_panier.php\">Valider le panier</a><a >   /     </a>";
+    echo "<a href=\"panier.php?del=true\">Vider le panier</a>";
 
-} else
+} else {
     echo "</table>";
     echo "<p>Panier vide</p>";
-
+}
 
 include "../db/print_panier_current.php";
 

@@ -14,7 +14,7 @@
     <li><a <?php if (isset($_GET['loc']) && $_GET['loc'] == "login") echo "class=\"active\" "; ?> href="../user/login.php">Se connecter</a></li>
     <li><a <?php if (isset($_GET['loc']) && $_GET['loc'] == "logout") echo "class=\"active\" "; ?> href="../user/logout.php">Deconnection</a></li>
     <li><a <?php if (isset($_GET['loc']) && $_GET['loc'] == "admin") echo "class=\"active\" "; ?> href="../admin/index.php">Administration</a></li>
-    <li><p><?php include "../user/whoami.php";?></p></li>
+    <li><p style="Position:absolute; right:30px; color: #f1f1f1"><?php include "../user/whoami.php";?></p></li>
 </ul>
 <?php
 if (!empty($_GET['loc'])){

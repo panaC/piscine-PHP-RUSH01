@@ -44,6 +44,7 @@
     <li><a <?php if (isset($_GET['loc']) && $_GET['loc'] == "categorie") echo "class=\"active\" "; ?> href="index.php?loc=categorie">Categorie</a></li>
     <li><a <?php if (isset($_GET['loc']) && $_GET['loc'] == "admin") echo "class=\"active\" "; ?> href="index.php?loc=admin">Admin</a></li>
     <li><a href="../user/logout.php">Logout</a></li>
+    <li><a href="../index/index.php">Boutique</a></li>
 </ul>
 
 <div style="margin-left:25%;padding:1px 16px;height:1000px;">

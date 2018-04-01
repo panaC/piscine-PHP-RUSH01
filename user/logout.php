@@ -10,6 +10,10 @@ session_start();
 
 if (!empty($_SESSION['loggued_on_user'])) {
     $_SESSION['loggued_on_user'] = "";
+    $_SESSION['panier'] = "";
+    $_SESSION['panier-total'] = "";
+    header("location: ../index.php");
+} else {
     header("location: ../index.php");
 }
 

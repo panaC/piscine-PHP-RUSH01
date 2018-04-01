@@ -9,7 +9,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "pierre";
-$database = "db_rush01";
+$database = "db_rush00";
 
 date_default_timezone_set("Europe/Paris");
 

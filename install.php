@@ -5,7 +5,7 @@ $file = "./db/sql/install.sql";
 
 $sql = mysqli_connect($servername, $username, $password);
 echo mysqli_error($sql)."<br>";
-$res = mysqli_query($sql, "CREATE DATABASE IF NOT EXISTS db_rush01");
+$res = mysqli_query($sql, "CREATE DATABASE IF NOT EXISTS ".$database);
 mysqli_close($sql);
 
 if ($res)

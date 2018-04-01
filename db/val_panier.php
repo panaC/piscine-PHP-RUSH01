@@ -18,7 +18,7 @@ if (!empty($_SESSION['loggued_on_user']) && !empty($_SESSION['panier'])) {
     if ($res) {
         $_SESSION['panier'] = "";
         $_SESSION['panier-total'] = "";
-        header("location: ../panier/panier.php");
+        header("location: ../user/login.php");
         echo "OK\n";
     }
 } else {
