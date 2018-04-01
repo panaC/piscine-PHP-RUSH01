@@ -3,16 +3,16 @@
  * Created by PhpStorm.
  * User: pleroux
  * Date: 4/1/18
- * Time: 7:17 PM
+ * Time: 8:09 PM
  */
 
-function array_product_limit($lim) {
+function array_product_categorie($cat) {
 
     include "../db/setting.php";
     $sql = mysqli_connect($servername, $username, $password, $database);
     echo mysqli_error($sql) . "<br>";
 
-    $s = "SELECT id, title, spec, price FROM produit LIMIT".$lim;
+    $s = "SELECT ".$cat." FROM categorie";
     $res = mysqli_query($sql, $s);
     echo mysqli_error($sql) . "<br>";
 

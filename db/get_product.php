@@ -12,7 +12,7 @@ function get_product($id) {
     $sql = mysqli_connect($servername, $username, $password, $database);
     echo mysqli_error($sql) . "<br>";
 
-    $s = "SELECT title, price FROM produit WHERE id=".$id;
+    $s = "SELECT title, price, id, spec FROM produit WHERE id=".$id;
     $res = mysqli_query($sql, $s);
 
     return (mysqli_fetch_row($res));
