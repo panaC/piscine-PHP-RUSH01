@@ -27,24 +27,32 @@
 session_start();
 include "../db/setting.php";
 include "../db/get_product.php";
+include "../db/ft_print_product_table.php";
 
 if (!empty($_GET['id_product']) && !empty($_GET['qty'])) {
     if (empty($_SESSION['panier']))
         $_SESSION['panier'] = array();
     $_SESSION['panier'][] = array('id_product' => $_GET['id_product'], 'qty' => $_GET['qty']);
 }
+$total = 0;
+if (!empty($_SESSION['panier'])) {
+    foreach ($_SESSION['panier'] as $arr) {
+        $ap = get_product($arr['id_product']);
+        $total = $total + ($ap[1] * $arr['qty']);
+        echo "<tr>";
+        echo "<td>" . $arr['id_product'] . "</td><td>" . $ap[0] . "</td><td>" . $arr['qty'] . "</td><td>" .
+            $ap[1] . "</td><td>" . $ap[1] * $arr['qty'] . "</td>";
+        echo "</tr>";
+    }
+    $_SESSION['panier-total'] = $total;
 
-foreach ($_SESSION['panier'] as $arr){
-    $ap = get_product($arr['id_product']);
-    $_SESSION['panier-total'] = $ap[1] * $arr['qty'];
-    echo "<tr>";
-    echo "<td>".$arr['id_product']."</td><td>".$ap[0]."</td><td>".$arr['qty']."</td><td>".
-        $ap[1]."</td><td>".$_SESSION['panier-total']."</td>";
-    echo "</tr>";
-}
+    echo "</table>";
+    echo "<h4>Total : " . $_SESSION['panier-total'] . " €</h4>";
+    echo "<a href=\"../db/val_panier.php\">Valider le panier</a>";
 
-echo "</table>";
-echo "<br><a href=\"../db/val_panier.php\">Valider le panier</a>";
+} else
+    echo "</table>";
+    echo "<p>Panier vide</p>";
 
 
 include "../db/print_panier_current.php";

@@ -22,7 +22,7 @@ if (!empty($_SESSION['loggued_on_user']) && !empty($_SESSION['panier'])) {
         echo "OK\n";
     }
 } else {
-    echo "<br>Vous n'êtes pas connecté";
+    echo "<br>Vous n'êtes pas connecté ou votre panier est vide";
 }
 
 ?>

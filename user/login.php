@@ -40,7 +40,7 @@ if (empty($_SESSION['loggued_on_user'])) {
             $_SESSION['loggued_on_user'] = $_POST['login'];
             $_SESSION['panier'] = "";
             $_SESSION['panier-total'] = "";
-            header("location: index.php");
+            header("location: ../index.php");
 
         } else {
             $_SESSION['loggued_on_user'] = "";

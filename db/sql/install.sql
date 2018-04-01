@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS categorie (
 CREATE TABLE IF NOT EXISTS panier (
   id INT AUTO_INCREMENT NOT NULL,
   login VARCHAR(256) NOT NULL,
-  product VARCHAR(256),
+  product LONGTEXT,
   total VARCHAR(16) NOT NULL,
   date_de_creation DATE,
   groupe ENUM('current', 'archive'),
