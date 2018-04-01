@@ -13,7 +13,6 @@ session_start();
 
 if (empty($_SESSION['loggued_on_user'])) {
 
-    echo "HALLO";
     echo "<!DOCTYPE html>
 <html lang=\"fr\">
 <head>
