@@ -9,15 +9,19 @@ h1 {
 }
 #conteneur
 {
-	display: flex;
+	width: 90%;
+	margin: auto;
+	display: inline-flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: flex-start;
+	align-content:stretch;
+	flex-grow: 1;
 }
 .element
 {
-	size:5%;
-	background-color: blue;
+	flex-grow: 1;
+	width:20%;
     margin: auto;
 }
