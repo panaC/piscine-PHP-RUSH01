@@ -42,15 +42,15 @@ if (!empty($_POST['login']) && !empty($_POST['passwd']) && !empty($_POST['prenom
     if (mysqli_num_rows($res) == 0) {
         $hash = hash("whirlpool", $_POST['passwd']);
 
-        $s = "INSERT INTO users (login, passwd, prenon, nom, date_de_creation)\n
+        $s = "INSERT INTO users (login, passwd, prenon, nom, date_de_creation, groupe)\n
                   VALUES ('".$_POST['login']."', '".$hash."', '".$_POST['prenom']."', '".$_POST['nom']."',
-                  STR_TO_DATE('".date("d/m/y", time())."', '%d/%m/%y'));";
+                  STR_TO_DATE('".date("d/m/y", time())."', '%d/%m/%y'), 'client');";
 
         $res = mysqli_multi_query($sql, $s);
         echo mysqli_error($sql)."<br>";
 
         if ($res) {
-            header("location: index.php");
+            header("location: login.php");
             echo "OK\n";
         }
     } else {
