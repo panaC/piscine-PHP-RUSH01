@@ -1,10 +1,14 @@
 <html>
 <body>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
 <h1>Panier de l'e-shop</h1>
-<br>
 <h2>Panier en cours :</h2>
-<br>
-<table>
+
+<table style="width:100%">
     <tr>
         <th>Ref</th>
         <th>Title</th>
@@ -12,8 +16,6 @@
         <th>Prix</th>
         <th>Total</th>
     </tr>
-</table>
-
 <?php
 /**
  * Created by PhpStorm.
@@ -23,36 +25,36 @@
  */
 
 session_start();
-include "../db/setting.php"
+include "../db/setting.php";
+include "../db/get_product.php";
 
-if (!empty($_GET['id_product']) && !empty($_GET['qty']))
-{
+if (!empty($_GET['id_product']) && !empty($_GET['qty'])) {
     if (empty($_SESSION['panier']))
         $_SESSION['panier'] = array();
-    $_SESSION['panier'][] = array('id_product'=>$_GET['id_product'], 'qty'=>$_GET['qty']);
-
-    foreach ($_SESSION['panier'] as $arr){
-        $ap = get_product($arr['id_product']);
-        $total = $ap['prix'] * $arr['qty'];
-        echo "<tr>";
-        echo "<td>".$arr['id_product']."</td><td>".$ap['title']."</td><td>".$arr['qty']."</td><td>".$ap['prix']."</td><td>".$total."</td>";
-    }
+    $_SESSION['panier'][] = array('id_product' => $_GET['id_product'], 'qty' => $_GET['qty']);
 }
 
-echo "<br><a href=\"../sql/val_panier.php\">Valider le panier</a>";
+foreach ($_SESSION['panier'] as $arr){
+    $ap = get_product($arr['id_product']);
+    $_SESSION['panier-total'] = $ap[1] * $arr['qty'];
+    echo "<tr>";
+    echo "<td>".$arr['id_product']."</td><td>".$ap[0]."</td><td>".$arr['qty']."</td><td>".
+        $ap[1]."</td><td>".$_SESSION['panier-total']."</td>";
+    echo "</tr>";
+}
 
-echo "<br><br>";
-echo "<h2>Paniers commandés et validés: </h2>";
-echo "<br>";
+echo "</table>";
+echo "<br><a href=\"../db/val_panier.php\">Valider le panier</a>";
+
+
+include "../db/print_panier_current.php";
+
+include "../db/print_panier_archive.php";
 
 
 // display the ongoing panier in table
 //add validate form -> in validate verify the $session login because redirection to login.php else
     // fill the database with current;
-
-echo "<br><br>";
-echo "<h2>Paniers archivés et envoyés: </h2>";
-echo "<br>";
 
 // display html code for the next table the current table
 // display html code for the next table the archive table
