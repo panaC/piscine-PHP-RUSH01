@@ -1,5 +1,9 @@
 <?PHP
+?>
 session_start();
+$sql = mysqli_connect($servername, $username, $password, $database);
+echo mysqli_error($sql) . "<br>";
+
 $s = "SELECT * FROM categorie";
 $res = mysqli_query($sql, $s);
 ?>
@@ -11,37 +15,11 @@ $res = mysqli_query($sql, $s);
 		<link rel="stylesheet" type="text/css" href="theme.css">
 	</head>
 	<body>
-		<h1 style="font-size:300%">SHOP</h1>
 <ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
+  <li><a class = active href="index.php" style="text-color:white">Home</a></li>
+  <li><a  href="Categorie.php">Categorie</a></li>
+  <li><a href="#contact">Panier</a></li>
+  <li><a href="#about">log IN/OUT</a></li>
 </ul>
-		<div id="conteneur">
-			<div class="element"><h1>0</h1></div>
-			<div class="element"><h1>1</h1></div>
-			<div class="element"><h1>2</h1></div>
-			<div class="element"><h1>3</h1></div>
-			<div class="element"><h1>4</h1></div>
-			<div class="element"><h1>5</h1></div>
-			<div class="element"><h1>6</h1></div>
-			<div class="element"><h1>7</h1></div>
-			<div class="element"><h1>8</h1></div>
-			<div class="element"><h1>9</h1></div>
-			<div class="element"><h1>10</h1></div>
-			<div class="element"><h1>0</h1></div>
-			<div class="element"><h1>1</h1></div>
-			<div class="element"><h1>2</h1></div>
-			<div class="element"><h1>3</h1></div>
-			<div class="element"><h1>4</h1></div>
-			<div class="element"><h1>5</h1></div>
-			<div class="element"><h1>6</h1></div>
-			<div class="element"><h1>7</h1></div>
-			<div class="element"><h1>8</h1></div>
-			<div class="element"><h1>9</h1></div>
-			<div class="element"><h1>10</h1></div>
-			<div class="element"><h1>11</h1></div>
-		</div>
 	</body>
 </html>
